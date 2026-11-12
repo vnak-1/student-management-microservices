@@ -1,0 +1,12 @@
+{
+  "name": "registration-service",
+  "version": "1.0.0",
+  "main": "server.js",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "mongoose": "^8.24.5"
+  }
+}

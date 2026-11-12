@@ -1,0 +1,26 @@
+# Public entry point: all requests go through the API gateway
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-service
+spec:
+  type: NodePort
+  selector:
+    app: gateway-registration
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30080
+---
+# Internal service: the gateway calls delete-service by this name
+apiVersion: v1
+kind: Service
+metadata:
+  name: delete-service
+spec:
+  type: ClusterIP
+  selector:
+    app: delete-service
+  ports:
+    - port: 3002
+      targetPort: 3002

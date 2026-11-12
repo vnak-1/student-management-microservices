@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "Student Management (via API Gateway)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }],
+  "item": [
+    {
+      "name": "1. Register Student",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/register",
+        "body": { "mode": "raw", "raw": "{\n  \"Student_id\": \"S001\",\n  \"Student_name\": \"Long Vathanak\",\n  \"student_mobile\": \"012345678\",\n  \"student_email\": \"vathanak@student.edu\",\n  \"student_password\": \"pass1234\"\n}" }
+      }
+    },
+    { "name": "2. List Students", "request": { "method": "GET", "url": "{{baseUrl}}/api/students" } },
+    { "name": "3. Delete Student", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/students/S001" } }
+  ]
+}
