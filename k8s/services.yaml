@@ -1,16 +1,15 @@
-# Public entry point: all requests go through the API gateway
+# API gateway service: the Ingress sends every request here (all requests go through the API gateway)
 apiVersion: v1
 kind: Service
 metadata:
   name: gateway-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: gateway-registration
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 30080
 ---
 # Internal service: the gateway calls delete-service by this name
 apiVersion: v1
